@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4efe7" />
+    <title>Pedidos | Bella Così Boutique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/dashboard.js" defer></script>
+  </head>
+  <body class="dashboard-page">
+    <header class="site-header dashboard-header">
+      <a class="wordmark" href="/" aria-label="Bella Così Boutique, catálogo"
+        >bella così <span>BOUTIQUE</span></a
+      >
+      <div class="dashboard-heading">
+        <span class="eyebrow">Ateliê digital</span>
+        <h1>Pedidos & conversas</h1>
+      </div>
+      <div class="header-actions">
+        <span class="connection-label"
+          ><i class="connection-dot" id="connection-dot"></i
+          ><span id="connection-label">Conectando</span></span
+        ><a class="dashboard-link" href="/"
+          >Ver catálogo <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </header>
+    <main class="dashboard-layout">
+      <nav class="dashboard-tabs" aria-label="Seções do painel">
+        <button
+          type="button"
+          class="dashboard-tab is-active"
+          data-view="orders"
+        >
+          Pedidos <span id="pending-count">0</span>
+        </button>
+        <button type="button" class="dashboard-tab" data-view="chats">
+          Conversas <span id="chat-count">0</span>
+        </button>
+      </nav>
+      <section
+        class="orders-section is-visible"
+        id="orders-section"
+        aria-labelledby="orders-heading"
+      >
+        <div class="dashboard-section-heading">
+          <div>
+            <p class="eyebrow">Acompanhe cada etapa</p>
+            <h2 id="orders-heading">Fluxo de pedidos</h2>
+          </div>
+          <p class="sort-caption">
+            <span aria-hidden="true">↑</span> Mais antigos primeiro
+          </p>
+        </div>
+        <div class="order-board" id="order-board" aria-live="polite"></div>
+      </section>
+      <section
+        class="chat-section"
+        id="chat-section"
+        aria-labelledby="chats-heading"
+      >
+        <div class="dashboard-section-heading chat-section-heading">
+          <div>
+            <p class="eyebrow">Atendimento próximo</p>
+            <h2 id="chats-heading">Conversas ativas</h2>
+          </div>
+        </div>
+        <div class="consultant-chat">
+          <div
+            class="session-list"
+            id="session-list"
+            aria-label="Clientes com conversa"
+          >
+            <p class="session-empty">As conversas aparecerão aqui.</p>
+          </div>
+          <div class="consultant-thread" id="consultant-thread">
+            <div class="thread-empty">
+              <span class="thread-mark" aria-hidden="true">bc.</span>
+              <p>Escolha uma conversa para começar.</p>
+            </div>
+          </div>
+        </div>
+        <form
+          class="chat-compose consultant-compose"
+          id="consultant-chat-form"
+          hidden
+        >
+          <label class="sr-only" for="consultant-message-input"
+            >Mensagem para a cliente</label
+          >
+          <input
+            id="consultant-message-input"
+            type="text"
+            maxlength="2000"
+            placeholder="Escreva uma resposta..."
+            autocomplete="off"
+            required
+          />
+          <button
+            class="send-button"
+            type="submit"
+            aria-label="Enviar mensagem"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m4 4 17 8-17 8 3-8-3-8Z" />
+              <path d="M7 12h14" />
+            </svg>
+          </button>
+        </form>
+      </section>
+    </main>
+    <div
+      class="toast"
+      id="dashboard-toast"
+      role="status"
+      aria-live="polite"
+    ></div>
+  </body>
+</html>
