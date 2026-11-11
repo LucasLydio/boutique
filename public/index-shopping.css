@@ -1,0 +1,372 @@
+.drawer-scrim {
+  position: fixed;
+  z-index: 8;
+  inset: 0;
+  background: rgba(35, 30, 26, 0.38);
+  animation: fade-in 160ms ease both;
+}
+
+.drawer-scrim[hidden] {
+  display: none;
+}
+
+.bag-drawer {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: min(460px, 100%);
+  height: 100dvh;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background: var(--bg-lighter);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(102%);
+  transition: transform 240ms ease;
+}
+
+.bag-drawer.is-open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.drawer-header h2 {
+  margin: 4px 0 0;
+  font: 500 34px/1 var(--serif);
+}
+
+.drawer-header h2 span {
+  color: var(--text-muted);
+  font: 400 var(--font-sm) var(--sans);
+}
+
+.drawer-header .close-drawer {
+  margin-top: -6px;
+  font-size: 27px;
+  color: var(--text-muted);
+}
+
+.bag-items {
+  flex: 1;
+  overflow: auto;
+}
+
+.bag-line {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.bag-line img {
+  width: 76px;
+  height: 98px;
+  object-fit: cover;
+  background: var(--bg-medium);
+}
+
+.bag-line h3 {
+  margin: 1px 0 3px;
+  font: 500 22px/1 var(--serif);
+}
+
+.bag-line p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--font-xsm);
+}
+
+.bag-line .bag-line-price {
+  margin-top: 8px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.remove-line {
+  align-self: start;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.quantity-control {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 9px;
+  margin-top: 9px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.quantity-control button {
+  width: 26px;
+  height: 25px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  min-width: 14px;
+  font-size: var(--font-xsm);
+  text-align: center;
+}
+
+.bag-empty {
+  display: grid;
+  flex: 1;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.bag-empty p {
+  max-width: 230px;
+}
+
+.bag-empty .text-link {
+  color: var(--text-main);
+}
+
+.checkout-area {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-light);
+}
+
+.checkout-area[hidden] {
+  display: none;
+}
+
+.bag-subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-md);
+}
+
+.bag-subtotal strong {
+  font-size: var(--font-lg);
+}
+
+.shipping-note {
+  margin: 4px 0 var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--font-xsm);
+}
+
+.checkout-form {
+  display: grid;
+  gap: 11px;
+}
+
+.checkout-form label {
+  display: grid;
+  gap: 5px;
+  font-size: var(--font-xsm);
+  font-weight: 600;
+}
+
+.checkout-form input {
+  width: 100%;
+  height: 43px;
+  padding: 0 11px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-light);
+}
+
+.checkout-feedback {
+  min-height: 18px;
+  margin: 0;
+  color: #a23f36;
+  font-size: var(--font-xsm);
+}
+
+.product-dialog,
+.confirmation-dialog {
+  width: min(720px, calc(100vw - 28px));
+  max-width: none;
+  max-height: min(90dvh, 790px);
+  padding: 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--bg-lighter);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-dialog::backdrop,
+.confirmation-dialog::backdrop {
+  background: rgba(35, 30, 26, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.dialog-product-image {
+  width: 100%;
+  max-height: 290px;
+  aspect-ratio: 1.25;
+  object-fit: cover;
+  background: var(--bg-medium);
+}
+
+.dialog-product-details {
+  position: relative;
+  padding: var(--space-lg);
+}
+
+.dialog-close {
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  right: 9px;
+  background: rgba(255, 253, 250, 0.9);
+  font-size: 25px;
+}
+
+.dialog-product-details h2 {
+  margin: 5px 0 0;
+  font: 500 34px/1 var(--serif);
+}
+
+.dialog-price {
+  margin: 8px 0;
+  font-weight: 600;
+}
+
+.dialog-description {
+  margin: 0 0 var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+.choice-label {
+  display: block;
+  margin: 15px 0 7px;
+  font-size: var(--font-xsm);
+  font-weight: 700;
+}
+
+.size-options,
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.choice-button {
+  min-width: 38px;
+  height: 36px;
+  padding: 0 9px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+
+.choice-button.is-selected {
+  border-color: var(--text-main);
+  background: var(--text-main);
+  color: white;
+}
+
+.color-options .choice-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+}
+
+.quantity-field {
+  display: flex;
+  width: 118px;
+  height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.quantity-field button {
+  width: 34px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.quantity-field output {
+  font-size: var(--font-sm);
+}
+
+.add-to-bag {
+  width: 100%;
+}
+
+.confirmation-dialog {
+  position: relative;
+  max-width: 480px;
+  padding: 44px 26px 28px;
+  text-align: center;
+}
+
+.confirmation-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #e3e9dc;
+  color: var(--olive);
+  font-size: 23px;
+}
+
+.confirmation-dialog h2 {
+  max-width: 360px;
+  margin: 10px auto;
+  font: 500 36px/0.98 var(--serif);
+}
+
+.confirmation-dialog > p:not(.eyebrow) {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+.confirmation-close {
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (min-width: 640px) {
+  .dialog-product-image {
+      height: 100%;
+      max-height: 580px;
+      aspect-ratio: auto;
+    }
+  
+  .dialog-product-details {
+      align-self: center;
+      padding: var(--space-xlg);
+    }
+}

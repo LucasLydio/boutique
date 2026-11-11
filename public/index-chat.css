@@ -1,0 +1,119 @@
+.chat-launcher {
+  position: fixed;
+  z-index: 7;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 28px;
+  background: var(--text-main);
+  color: white;
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-widget {
+  position: fixed;
+  z-index: 8;
+  right: 12px;
+  bottom: 76px;
+  display: flex;
+  width: min(370px, calc(100vw - 24px));
+  height: min(490px, calc(100dvh - 100px));
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--bg-lighter);
+  box-shadow: var(--shadow-lg);
+  animation: rise-in 220ms ease both;
+}
+
+.chat-widget[hidden] {
+  display: none;
+}
+
+.chat-widget-header {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chat-widget-header > div {
+  display: grid;
+  gap: 2px;
+}
+
+.chat-widget-header strong {
+  font: 600 20px/1 var(--serif);
+}
+
+.chat-widget-header > div > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: var(--font-xsm);
+}
+
+.chat-widget-header .status-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.chat-widget .close-chat {
+  font-size: 27px;
+  color: var(--text-muted);
+}
+
+.chat-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 9px;
+  overflow-y: auto;
+  padding: var(--space-md);
+  background: #f8f4ed;
+}
+
+.chat-welcome {
+  max-width: 83%;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 2px 12px 12px 12px;
+  background: white;
+  color: var(--text-main);
+  font-size: var(--font-sm);
+}
+
+.message-bubble {
+  max-width: 82%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: white;
+  font-size: var(--font-sm);
+  overflow-wrap: anywhere;
+}
+
+.message-bubble.is-own {
+  align-self: flex-end;
+  border-radius: 12px 2px 12px 12px;
+  background: var(--text-main);
+  color: white;
+}
+
+.message-time {
+  display: block;
+  margin-top: 3px;
+  opacity: 0.65;
+  font-size: 10px;
+}
